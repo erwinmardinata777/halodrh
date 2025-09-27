@@ -21,8 +21,8 @@ class WablasWebhookController extends Controller
         $message = strtolower(trim($data['message']));
 
         // Token & secret key dari Wablas
-        $token = env('WABLAS_TOKEN');
-        $secretKey = env('WABLAS_SECRET');
+        $token = "7pJ3hn49er1VJtSvyoGcArCLKiDGUai51aGMj88cY5AfcHilW5mpUEe";
+        $secretKey = "JKgSXvtS";
 
         // Default reply
         $reply = "Halo, terima kasih sudah menghubungi kami. 😊\nKetik *menu* untuk bantuan.";
@@ -36,7 +36,7 @@ class WablasWebhookController extends Controller
         }
 
         // Kirim balasan ke API Wablas
-        $url = env('WABLAS_URL');
+        $url = "https://sby.wablas.com/api/send-message";
         $response = Http::withoutVerifying()->get($url, [
             'token' => $token . '.' . $secretKey,
             'phone' => $sender,
